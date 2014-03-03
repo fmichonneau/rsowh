@@ -31,6 +31,6 @@ constrained and unconstrained topology.
 Not much that I can think right now.
 }
 \author{
-François Michonneau
+Francois Michonneau
 }
 

@@ -59,7 +59,7 @@ splitSimSeq <- function(file, prefix, pathin, pathout) {
 ##' replicates will be located.
 ##' @return TRUE, but really used for its side effect of generating
 ##' individual replicate for each locus.
-##' @author François Michonneau
+##' @author Francois Michonneau
 formatAlignments <- function(pattern, prefix, pathin, pathout) {
     stopifnot(file.exists(pathin))
     pathout <- gsub("/$", "", pathout)
@@ -91,7 +91,7 @@ formatAlignments <- function(pattern, prefix, pathin, pathout) {
 ##' the concatenated replicates will be stored;
 ##' @return TRUE, but really is used for its side effect of generating
 ##' alignment files to be used by RAxML.
-##' @author François Michonneau
+##' @author Francois Michonneau
 finalizeAlignments <- function(prefix, nreps, pathin, pathout) {
     stopifnot(file.exists(pathin))
     pathout <- gsub("/$", "", pathout)

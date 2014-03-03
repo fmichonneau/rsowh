@@ -37,6 +37,6 @@ will be generated.
 If \code{pathout} does not exist, it will be created.
 }
 \author{
-François Michonneau
+Francois Michonneau
 }
 

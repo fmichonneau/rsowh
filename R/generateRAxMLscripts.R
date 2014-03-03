@@ -34,7 +34,7 @@ generateRAxMLscripts <- function(path, model, algfile, partfile, treefile, nreps
                                  prefixBest="best", seed) {
     stopifnot(file.exists(path))
     tPath <- file.info(path)$isdir
-    stopifnot(tDir)
+    stopifnot(tPath)
     model <- match.arg(model, c("GTRGAMMA", "GTRGAMMAI"))    
     owd <- getwd()
     setwd(path)
