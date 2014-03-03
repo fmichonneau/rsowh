@@ -1,3 +1,8 @@
+
+
+
+[![Build Status](https://travis-ci.org/fmichonneau/rsowh.png?branch=master)](https://travis-ci.org/fmichonneau/rsowh.png)
+
 rsowh
 =====
 
