@@ -12,5 +12,5 @@ Depends:
     seqManagement (>= 0.1)
 License: GPL (>= 2)
 LazyData: true
-URL: https://bitbucket.org/fmichonneau/rsowh
-BugReports: https://bitbucket.org/fmichonneau/rsowh/issues
+URL: https://github.comm/fmichonneau/rsowh
+BugReports: https://github.com/fmichonneau/rsowh/issues
