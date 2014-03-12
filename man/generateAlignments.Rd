@@ -18,8 +18,8 @@ generateAlignments(algfile, partfile, tree, model, nreps,
 
   \item{model}{The model of molecular evolution to be used
   for parameter estimation on each parameters (at this
-  stage, only \code{\dQuote{GTRGAMMA}} and
-  \code{\dQuote{GTRGAMMAI}} are supported).}
+  stage, only \dQuote{\code{GTRGAMMA}} and
+  \dQuote{\code{GTRGAMMAI}} are supported).}
 
   \item{nreps}{Number of replicated simulated datasets to
   generate.}
