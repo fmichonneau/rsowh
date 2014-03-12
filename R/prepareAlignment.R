@@ -19,12 +19,9 @@
 ##' @return TRUE, but really used for its side effect of generating
 ##' individual alignment files.
 ##' @author Francois Michonneau
+##' @export
 splitSimSeq <- function(file, prefix, pathin, pathout) {
     f <- scan(file.path(pathin, file), what="character", sep="\n", quiet=TRUE)
-
-    if (missing(seed)) {
-        seed <- as.integer(runif(1) * 10000000)        
-    }
 
     begAlg <- grep("^\\s?[0-9]+\\s{1}[0-9]+$", f)
     endAlg <- c(begAlg[-1] - 1, length(f))
@@ -60,6 +57,7 @@ splitSimSeq <- function(file, prefix, pathin, pathout) {
 ##' @return TRUE, but really used for its side effect of generating
 ##' individual replicate for each locus.
 ##' @author Francois Michonneau
+##' @export
 formatAlignments <- function(pattern, prefix, pathin, pathout) {
     stopifnot(file.exists(pathin))
     pathout <- gsub("/$", "", pathout)
@@ -92,6 +90,7 @@ formatAlignments <- function(pattern, prefix, pathin, pathout) {
 ##' @return TRUE, but really is used for its side effect of generating
 ##' alignment files to be used by RAxML.
 ##' @author Francois Michonneau
+##' @export
 finalizeAlignments <- function(prefix, nreps, pathin, pathout) {
     stopifnot(file.exists(pathin))
     pathout <- gsub("/$", "", pathout)
@@ -109,7 +108,8 @@ finalizeAlignments <- function(prefix, nreps, pathin, pathout) {
         concatenateAlignments(pattern=ptrn, path=pathin, output=otpt,
                               input.format="sequential",
                               partition=part, partition.format="raxml",
-                              format="sequential", standardize=TRUE, colw=10000, colsep="")
+                              format="sequential", standardize=TRUE, colw=999999,
+                              colsep="")
     }
     TRUE
 }
