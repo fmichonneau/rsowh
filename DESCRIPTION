@@ -7,7 +7,8 @@ Authors@R: person("Francois", "Michonneau", role=c("aut", "cre"),
 Author: Francois Michonneau
 Maintainer: Francois Michonneau <francois.michonneau@gmail.com>
 Depends:
-    R (>= 3.0.2),
+    R (>= 3.0.2)
+Imports:
     ape (>= 3.0-11),
     seqManagement (>= 0.1)
 License: GPL (>= 2)

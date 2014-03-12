@@ -4,6 +4,9 @@
 \alias{rsowh-package}
 \title{rsowh}
 \description{
-rsowh
+An R interface for the SOWH test
+}
+\details{
+This package requires RAxML and seq-gen
 }
 

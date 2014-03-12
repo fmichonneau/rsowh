@@ -23,7 +23,7 @@ generateRAxMLscripts(path, model, algfile, partfile, treefile, nreps,
   simulations}
 
   \item{constrTopology}{Path to the CONSTRAINED
-  multifurcating topology}
+  multifurc*ating topology}
 
   \item{prefixConst}{Character string indicating the prefix
   for the files generated for the constrained topology}

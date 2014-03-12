@@ -4,7 +4,7 @@
 \usage{
 execSeqGen(params, nreps, model = "GTR", ngamma = 4, seed = "10101",
   outputFormat = c("relaxed", "phylip", "nexus"),
-  path = "groupedPartitions")
+  pathSimData = "simDataGrouped")
 }
 \arguments{
   \item{params}{The list of parameters generates by
@@ -28,7 +28,12 @@ execSeqGen(params, nreps, model = "GTR", ngamma = 4, seed = "10101",
   estimate your trees, keep the default
   (\sQuote{relaxed)}.}
 
-  \item{path}{Where the output files will be stored.}
+  \item{pathRaxml}{Where the RAxML_info files for each
+  partition are currently stored (default
+  \sQuote{partitionOptimization}).}
+
+  \item{pathSimData}{Where the output files will be stored
+  (default \sQuote{simDataGrouped})}
 }
 \value{
 TRUE, but really is used for its side effect of generating
@@ -37,6 +42,11 @@ random sequences stored in files.
 \description{
 Generate sequences with seq-gen using parameters from the
 RAxML run
+}
+\details{
+Currently, \code{seq-gen} uses a proportion of invariant
+sites depending on whether the list of parameters in the
+\code{params} object is empty or not.
 }
 \author{
 Francois Michonneau

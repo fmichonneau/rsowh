@@ -36,6 +36,7 @@
 ##'    \item{seqlen}{the sequence length}
 ##' }
 ##' @author Francois Michonneau
+##' @export
 getParams <- function(infoFile) {
     f <- scan(infoFile, what="character", sep="\n",
               quiet=TRUE)
@@ -52,7 +53,7 @@ getParams <- function(infoFile) {
     freqC <- grep("^freq pi\\(C\\):", f, value=TRUE)
     freqG <- grep("^freq pi\\(G\\):", f, value=TRUE)
     freqT <- grep("^freq pi\\(T\\):", f, value=TRUE)
-    treePath <-  grep("Final tree written to: ", f, value=TRUE)
+    treePath <-  grep("^Final tree written to: ", f, value=TRUE)
     nameAlg <- grep("-s\\s+(.+\\.phy)", f, value=TRUE)
     nameAlg <- gsub(".+-s\\s(.+\\phy)\\s+.+", "\\1", nameAlg)
     fileNm <- infoFile
