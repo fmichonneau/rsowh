@@ -19,7 +19,7 @@
 ##' @param treefile Path to the CONSTRAINED (H0) tree
 ##' @param nreps Number of replicated datasets to use in the
 ##' simulations
-##' @param constrTopology Path to the CONSTRAINED multifurcating topology
+##' @param constrTopology Path to the CONSTRAINED multifurc*ating topology
 ##' @param prefixConst Character string indicating the prefix for the
 ##' files generated for the constrained topology
 ##' @param prefixBest Character string indicating the prefix for the
@@ -29,6 +29,7 @@
 ##' @return TRUE, but used for its main effect of generating the bash
 ##' scripts needed to run the SOWH test.
 ##' @author Francois Michonneau
+##' @export
 generateRAxMLscripts <- function(path, model, algfile, partfile, treefile, nreps,
                                  constrTopology, prefixConst="const",
                                  prefixBest="best", seed) {
@@ -46,16 +47,16 @@ generateRAxMLscripts <- function(path, model, algfile, partfile, treefile, nreps
     if (missing(seed)) {
         seed <- as.integer(runif(1) * 10000000)        
     }
-    partFileScript <- file.path("alignmentsForTest", paste(prefixConst, ".part", sep=""))
+    partFileScript <- file.path("simDataForTest", paste(prefixConst, ".part", sep=""))
     generateAlignments(algfile=algfile, partfile=partfile, tree=treefile, model=model, nreps=nreps)
     formatAlignments(pattern="\\.out_simSeq$", prefix=prefixConst,
-                     pathin="groupedPartitions", pathout="individualAlignments")
-    finalizeAlignments(prefix=prefixConst, nreps=nreps, pathin="individualAlignments",
-                       pathout="alignmentsForTest")
-    generateBashScript(path="alignmentsForTest", output="bestTrees.sh", model=model,
+                     pathin="simDataGrouped", pathout="simDataIndividual")
+    finalizeAlignments(prefix=prefixConst, nreps=nreps, pathin="simDataIndividual",
+                       pathout="simDataForTest")
+    generateBashScript(path="simDataForTest", output="bestTrees.sh", model=model,
                        partfile=partFileScript,
                        tree=NULL, prefix=prefixBest, seed=seed)
-    generateBashScript(path="alignmentsForTest", output="constTree.sh", model=model, 
+    generateBashScript(path="simDataForTest", output="constTree.sh", model=model, 
                        partfile=partFileScript,
                        tree=constrTopology, prefix=prefixConst,seed=seed)
     setwd(owd)
