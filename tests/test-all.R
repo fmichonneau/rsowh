@@ -1,4 +1,4 @@
 
 if (require(testthat)) {
-    check_package("rsowh")
+    test_check("rsowh")
 }
