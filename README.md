@@ -70,7 +70,8 @@ The current version of `rsowh` is compatible with RAxML 8.0.1 and seq-gen 1.3.3.
 # Under the hood
 
 1. *Generate the simulated alignments* (`generateAlignments`) This function takes your alignment, your partition file, your tree, and simulate the datasets needed for the analysis.
-1. *Format the alignments* (`formatAlignemnts()`) This function uses `splitSimSeq` to generate one file per replicate and per locus.
+1. *Format the alignments* (`formatAlignemnts()`) This function uses
+   `splitMultiAlignments` (from the package `seqManagement`) to generate one file per replicate and per locus.
 1. *Finalize the simulated alignments* (`finalizeAlignments()`) This function concatenates the individual loci of each replicate into a single file.
 1. *Generate the bash script* (`generateBashScript()`) Once the datasets are generated, this function writes the bash script that runs RAxML to estimate the likelihoods on them. Depending on the arguments chosen, this function either runs the search unconstrained or constrained. It outputs a file that can be executed or embedded as part of another script (like a job on cluster).
 

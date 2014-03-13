@@ -22,13 +22,13 @@ TRUE, but really used for its side effect of generating
 individual replicate for each locus.
 }
 \description{
-Apply \code{\link{splitSimSeq}} on all loci.
+Apply \code{\link{splitMultiAlignemnts}} on all loci.
 }
 \details{
 Given a regexp pattern that match multiple files
 representing loci of an alignment simulated by seq-gen,
-this function applies \code{\link{splitSimSeq}} on each of
-them.
+this function applies \code{\link{splitMultiAlignments}} on
+each of them.
 
 This function may produce a large number of files. If you
 generated 500 replicates and you have 5 loci, 2,500 files
@@ -38,5 +38,8 @@ If \code{pathout} does not exist, it will be created.
 }
 \author{
 Francois Michonneau
+}
+\seealso{
+splitMultiAlignemnts
 }
 
