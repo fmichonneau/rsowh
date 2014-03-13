@@ -28,10 +28,6 @@ execSeqGen(params, nreps, model = "GTR", ngamma = 4, seed = "10101",
   estimate your trees, keep the default
   (\sQuote{relaxed)}.}
 
-  \item{pathRaxml}{Where the RAxML_info files for each
-  partition are currently stored (default
-  \sQuote{partitionOptimization}).}
-
   \item{pathSimData}{Where the output files will be stored
   (default \sQuote{simDataGrouped})}
 }
