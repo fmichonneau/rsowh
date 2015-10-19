@@ -63,7 +63,7 @@ generateBashScript <- function(path, output, partfile, model,
     reps <- gsub(".+-(.+)\\.phy", "\\1", lAlg)
 
     if (file.exists(output) && !overwrite) {
-        stop("File ", output, " already exists. If overwritting it is OK ",
+        stop("File ", output, " already exists. If overwritting is OK ",
              "use option overwrite=TRUE.")
     }        
 
