@@ -1,7 +1,10 @@
 
 
 
-[![Build Status](https://travis-ci.org/fmichonneau/rsowh.png?branch=master)](https://travis-ci.org/fmichonneau/rsowh.png)
+[![Build Status](https://travis-ci.org/fmichonneau/rsowh.svg)](https://travis-ci.org/fmichonneau/rsowh)
+[![Coverage Status](https://coveralls.io/repos/ropensci/rsowh/badge.svg?branch=master&service=github)](https://coveralls.io/github/ropensci/rsowh?branch=master)
+[![](http://www.r-pkg.org/badges/version/rsowh)](http://www.r-pkg.org/pkg/rsowh)
+[![CRAN RStudio mirror downloads](http://cranlogs.r-pkg.org/badges/rsowh)](http://www.r-pkg.org/pkg/rsowh)
 
 # rsowh
 
