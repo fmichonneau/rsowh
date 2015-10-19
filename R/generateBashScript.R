@@ -84,7 +84,8 @@ generateBashScript <- function(path, output, partfile, model,
 
     cmd <- character(length(lAlg))
     for (i in 1:length(lAlg)) {
-        cmd[i] <- paste(raxmlCmd, "-s", file.path(path, lAlg[i]), "-m", model,
+        cmd[i] <- paste(raxmlCmd, "-s", file.path(path, lAlg[i]),
+                        "--no-bfgs", "-m", model,
                         treecmd, "-p", seed, "-q", partfile, "-n",
                         paste(prefix, reps[i], sep="-"), raxmlArg)
     }
