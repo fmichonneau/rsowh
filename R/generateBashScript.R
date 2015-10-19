@@ -8,9 +8,9 @@
 ##' If you want to use this function by yourself, the recommended
 ##' usage is to call it from the directory above where your alignments
 ##' are stored.
-##' 
+##'
 ##' The seed provided or generated is used in all the calls.
-##' 
+##'
 ##' @title Generate a bash script
 ##' @param path character string indicating the path (i.e., directory)
 ##' where the simulated datasets on which to run the likelihood
@@ -52,7 +52,7 @@
 ##' bash script that contains the appropriate command to run a
 ##' likelihood search on each of the replicate dataset.
 ##' @author Francois Michonneau
-##' 
+##'
 generateBashScript <- function(path, output, partfile, model,
                                prefix, tree, seed,
                                raxmlCmd="raxmlHPC-PTHREADS-SSE3",
@@ -65,14 +65,14 @@ generateBashScript <- function(path, output, partfile, model,
     if (file.exists(output) && !overwrite) {
         stop("File ", output, " already exists. If overwritting is OK ",
              "use option overwrite=TRUE.")
-    }        
+    }
 
     if (!length(lAlg)) {
         stop("No alignments found in this path.")
     }
-    
+
     if (missing(seed)) {
-        seed <- as.integer(runif(1) * 9999999)        
+        seed <- as.integer(runif(1) * 9999999)
     }
 
     if (missing(tree) || is.null(tree)) {

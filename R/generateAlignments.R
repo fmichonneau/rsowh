@@ -43,13 +43,13 @@ generateAlignments <- function(algfile, partfile, tree, model, nreps,
     ## - create tests to make sure that there are no files that match
     ##   the regexpr used in the code before we start
     ## - possibility of changing seq-gen output format
-    
+
     owd <- getwd()
     setwd(pathFiles)
-    
+
     stopifnot(file.exists("seq-gen"))
     model <- match.arg(model, c("GTRGAMMA", "GTRGAMMAI"))
-    
+
     ## Cut Alignment
     cutAlignment(algfile=algfile, partfile=partfile, formatin=formatin,
                  format="sequential", colw=10000, colsep="")
@@ -59,7 +59,7 @@ generateAlignments <- function(algfile, partfile, tree, model, nreps,
     locNm <- paste(locNmL, collapse="|")
     pttrn <- paste("_(", locNm, ")\\.phy$", sep="")
     lAlg <- list.files(pattern=pttrn)
-    
+
     constTr <- read.tree(file=tree)
     for (i in 1:length(lAlg)) {
         algF <- lAlg[i]
@@ -78,22 +78,22 @@ generateAlignments <- function(algfile, partfile, tree, model, nreps,
                 message("\nFor", algF, "these sequences were removed:",
                         cat(nRm, sep="\n"),"\n")
             }
-            
+
             ## Drop tips for missing sequence for each individual loci
             tmpAlg <- read.dna(file=algF, format="sequential")
             toDrop <- constTr$tip.label[! constTr$tip.label %in% dimnames(tmpAlg)[[1]]]
             tmpTr <- drop.tip(constTr, toDrop)
             write.tree(tmpTr, file=paste(algF, "tree", sep=""))
-            
+
             ## Estimate parameters for each partition using guide/constrained
-            ## tree for each partition.           
+            ## tree for each partition.
             treF <- paste(algF, "tree", sep="")
             cmd <- paste(raxmlCmd, "-s", algF, "-n", outF, "-m", model,
                          "-f e -t", treF, raxmlArg)
-            system(cmd)   
+            system(cmd)
         }
     }
-   
+
     ## Generate Random sequences
     lInfoFiles <- list.files(pattern="info(.+)out$")
     for (i in 1:length(lInfoFiles)) {
@@ -102,7 +102,7 @@ generateAlignments <- function(algfile, partfile, tree, model, nreps,
     }
 
     resFiles <- list(lAlg = lAlg, lInfo = lInfoFiles)
-    
+
     setwd(owd)
     invisible(resFiles)
 }
