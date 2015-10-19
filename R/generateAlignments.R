@@ -38,6 +38,8 @@
 ##' @importFrom chopper removeEmptySeqs
 ##' @importFrom ape read.tree
 ##' @importFrom ape read.dna
+##' @importFrom ape write.tree
+##' @importFrom ape drop.tip
 ##' @export
 generateAlignments <- function(algfile, partfile, tree, model, nreps,
                                formatin = "sequential", pathFiles = ".",
@@ -87,8 +89,8 @@ generateAlignments <- function(algfile, partfile, tree, model, nreps,
             ## Drop tips for missing sequence for each individual loci
             tmpAlg <- ape::read.dna(file=algF, format="sequential")
             toDrop <- constTr$tip.label[! constTr$tip.label %in% dimnames(tmpAlg)[[1]]]
-            tmpTr <- drop.tip(constTr, toDrop)
-            write.tree(tmpTr, file=paste(algF, "tree", sep=""))
+            tmpTr <- ape::drop.tip(constTr, toDrop)
+            ape::write.tree(tmpTr, file=paste(algF, "tree", sep=""))
 
             ## Estimate parameters for each partition using guide/constrained
             ## tree for each partition.

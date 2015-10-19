@@ -29,7 +29,7 @@
 ##' original analyses).
 ##' @param prefix character string indicating the prefix used to name
 ##' the individual RAxML runs, for instance if
-##' \code{prefix=\dQuote{best}}, the RAxML run on the first replicated
+##' \code{prefix="best"}, the RAxML run on the first replicated
 ##' dataset will be named: \code{RAxML_info.best-rep001}.
 ##' @param tree If \code{NULL} or missing, RAxML will look for the
 ##' \sQuote{best} tree (using the \sQuote{\code{-f d}} RAxML algorithm),

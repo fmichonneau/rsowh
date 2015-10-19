@@ -24,12 +24,12 @@ TRUE, but really used for its side effect of generating
 individual replicate for each locus.
 }
 \description{
-Apply \code{\link{splitMultiAlignments}} on all loci.
+Apply \code{\link[chopper]{splitMultiAlignments}} on all loci.
 }
 \details{
 Given a regexp pattern that match multiple files representing loci
 of an alignment simulated by seq-gen, this function applies
-\code{\link{splitMultiAlignments}} on each of them.
+\code{\link[chopper]{splitMultiAlignments}} on each of them.
 
 This function may produce a large number of files. If you
 generated 500 replicates and you have 5 loci, 2,500 files will be
@@ -41,6 +41,6 @@ If \code{pathout} does not exist, it will be created.
 Francois Michonneau
 }
 \seealso{
-\code{\link[seqManagement]{splitMultiAlignments}}
+\code{\link[chopper]{splitMultiAlignments}}
 }
 
