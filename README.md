@@ -4,8 +4,8 @@
 [![Build Status](https://travis-ci.org/fmichonneau/rsowh.png?branch=master)](https://travis-ci.org/fmichonneau/rsowh.png)
 
 # rsowh
-rsowh -- an R interface to perform the SO-WH test using RAxML and seq-gen
 
+rsowh -- an R interface to perform the SO-WH test using RAxML and seq-gen
 
 # What is the SO-WH test?
 
@@ -61,7 +61,7 @@ You need:
 1. An alignment file that can be read by RAxML (relaxed phylip format) (let's
    call it `alignment.phy`)
 2. A partition file (`partition.part`). If your dataset is not partitioned, use
-   a single partition that encompass your entire alignment.
+   a single partition that encompasses your entire alignment.
 3. A multifurcating topology that reflects your hypothesis in the __phylip__
    format (`topology.phy`). The species in this tree must be at least a subset
    of the species included in the alignment. For more details consult the
@@ -106,7 +106,7 @@ The current version of `rsowh` is compatible with RAxML 8.0.1 and seq-gen 1.3.3.
    takes your alignment, your partition file, your tree, and simulate the
    datasets needed for the analysis.
 1. *Format the alignments* (`formatAlignemnts()`) This function uses
-   `splitMultiAlignments` (from the package `seqManagement`) to generate one
+   `splitMultiAlignments` (from the package `chopper`) to generate one
    file per replicate and per locus.
 1. *Finalize the simulated alignments* (`finalizeAlignments()`) This function
    concatenates the individual loci of each replicate into a single file.

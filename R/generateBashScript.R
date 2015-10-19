@@ -52,7 +52,7 @@
 ##' bash script that contains the appropriate command to run a
 ##' likelihood search on each of the replicate dataset.
 ##' @author Francois Michonneau
-##'
+##' @export
 generateBashScript <- function(path, output, partfile, model,
                                prefix, tree, seed,
                                raxmlCmd="raxmlHPC-PTHREADS-SSE3",

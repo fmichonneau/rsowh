@@ -10,7 +10,7 @@ Depends:
     R (>= 3.0.2)
 Imports:
     ape (>= 3.0-11),
-    seqManagement (>= 0.1)
+    chopper (>= 0.1)
 Suggests:
     testthat (>= 0.8.1)
 License: GPL (>= 2)

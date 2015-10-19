@@ -31,7 +31,7 @@ formatAlignments <- function(pattern, prefix, pathin, pathout) {
         system(paste("mkdir", pathout))
     else if ( ! file.info(pathout)$isdir)
         stop(pathout, " is not a directory.")
-        
+
     lFiles <- list.files(pattern=pattern, path=pathin)
     for (i in 1:length(lFiles)) {
         splitMultiAlignments(lFiles[i], prefix=prefix, pathin=pathin, pathout=pathout)
@@ -48,7 +48,7 @@ formatAlignments <- function(pattern, prefix, pathin, pathout) {
 ##' @title Finalize the alignments
 ##' @param prefix The prefix shared by all the files representing
 ##' replicates.
-##' @param nreps The number of replicates that have been generated. 
+##' @param nreps The number of replicates that have been generated.
 ##' @param pathin path (i.e., directory) indicating where the files
 ##' for each locus and each replicates are located.
 ##' @param pathout path (i.e., directory) indicating where the each of
@@ -56,6 +56,7 @@ formatAlignments <- function(pattern, prefix, pathin, pathout) {
 ##' @return TRUE, but really is used for its side effect of generating
 ##' alignment files to be used by RAxML.
 ##' @author Francois Michonneau
+##' @importFrom chopper concatenateAlignments
 ##' @export
 finalizeAlignments <- function(prefix, nreps, pathin, pathout) {
     stopifnot(file.exists(pathin))
@@ -64,18 +65,18 @@ finalizeAlignments <- function(prefix, nreps, pathin, pathout) {
         system(paste("mkdir", pathout))
     else if ( ! file.info(pathout)$isdir)
         stop(pathout, " is not a directory.")
-    
+
     lReps <- list.files(pattern=paste("^", prefix, sep=""), path=pathin)
     partFile <- file.path(pathout, paste(prefix, ".part", sep=""))
     for (i in 1:nreps) {
         ptrn <- paste("^", prefix, "-rep", i, "-", sep="")
         otpt <- file.path(pathout, paste(prefix, "-rep", i, ".phy", sep=""))
         if(i == 1) part <- partFile else part <- NULL
-        concatenateAlignments(pattern=ptrn, path=pathin, output=otpt,
-                              input.format="sequential",
-                              partition=part, partition.format="raxml",
-                              format="sequential", standardize=TRUE, colw=999999,
-                              colsep="")
+        chopper::concatenateAlignments(pattern=ptrn, path=pathin, output=otpt,
+                                       input.format="sequential",
+                                       partition=part, partition.format="raxml",
+                                       format="sequential", standardize=TRUE, colw=999999,
+                                       colsep="")
     }
     TRUE
 }
